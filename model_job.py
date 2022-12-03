@@ -6,7 +6,7 @@ from sklearn import model_selection
 from sklearn.linear_model import LogisticRegression
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
-
+import writeSheet as write
 
 def job() :
   df = pd.DataFrame()
@@ -23,10 +23,11 @@ def job() :
 
     for review in data:
       if review['text'] is not None:
-        text.append(review['text'])
-        username.append(review['name'])
-        date.append(review['publishedAtDate'][0:10])
-        star.append(review['stars'])
+        if len(review['text']) >= 2:
+          text.append(review['text'])
+          username.append(review['name'])
+          date.append(review['publishedAtDate'][0:10])
+          star.append(review['stars'])
       
     
 
@@ -51,7 +52,10 @@ def job() :
   def model_pred(string) :
     test = string.split("-")
     test_vector = vectorizer.transform(test)
-    return loaded_model.predict(test_vector)[0]
+    if loaded_model.predict(test_vector)[0] == 1 :
+      return "Positif"
+    else :
+      return "Negatif"
 
   df['Predicted'] = df['ULASAN'].apply(model_pred)
   # load the model from disk
@@ -67,6 +71,7 @@ def job() :
     return aspek_model.predict(test_vector)[0]
 
   df['Aspek'] = df['ULASAN'].apply(aspek_pred)
+  write.insert(df)
   return df
 
 # df = job()

@@ -26,7 +26,10 @@ def job(string) :
   def model_pred(string) :
     test = string.split("-")
     test_vector = vectorizer.transform(test)
-    return loaded_model.predict(test_vector)[0]
+    if loaded_model.predict(test_vector)[0] == 1 :
+      return "Positif"
+    else :
+      return "Negatif"
 
   df['Predicted'] = df['ULASAN'].apply(model_pred)
   # load the model from disk

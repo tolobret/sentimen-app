@@ -2,6 +2,7 @@ import model_job as model
 import predict_text as predict
 import streamlit as st
 import time
+import webbrowser
 
 st.title('Analisis Sentimen Ulasan Pelanggan Warung Wareg')
 
@@ -22,6 +23,12 @@ else:
 
 
 st.header('Prediksi Sentimen dan Aspek Ulasan Google Review Terbaru')
+
+url = 'https://datastudio.google.com/reporting/defe47e1-3401-4820-97a2-93ac0c6d19b0'
+if st.button('Buka Halaman Dashboard Analisis'):
+    webbrowser.open_new_tab(url)
+st.caption('Update data dashboard membutuhkan waktu 15-60 menit atau klik refresh data pada tombol option (⋮)')
+
 if st.button('Mulai Analisis Data Ulasan Terbaru'):    
     with st.spinner('Sedang mengambil teks ulasan ...'):
         data=model.job()
@@ -30,3 +37,4 @@ if st.button('Mulai Analisis Data Ulasan Terbaru'):
     st.table(data)
 else:
     st.write('')
+
