@@ -24,9 +24,11 @@ else:
 
 st.header('Prediksi Sentimen dan Aspek Ulasan Google Review Terbaru')
 
-url = 'https://datastudio.google.com/reporting/defe47e1-3401-4820-97a2-93ac0c6d19b0'
-if st.button('Buka Halaman Dashboard Analisis'):
-    webbrowser.open_new_tab(url)
+# url = 'https://datastudio.google.com/reporting/defe47e1-3401-4820-97a2-93ac0c6d19b0'
+link=' ### Buka Halaman Dashboard Analisis : [Dashboard](https://datastudio.google.com/reporting/defe47e1-3401-4820-97a2-93ac0c6d19b0)'
+st.markdown(link,unsafe_allow_html=True)
+# if st.button('Buka Halaman Dashboard Analisis'):
+#     webbrowser.open_new_tab(url)
 st.caption('Update data dashboard membutuhkan waktu 15-60 menit atau klik refresh data pada tombol option (⋮)')
 
 if st.button('Mulai Analisis Data Ulasan Terbaru'):    
