@@ -2,7 +2,7 @@ import pygsheets
 import pandas as pd
 import os.path
 #authorization
-gc = pygsheets.authorize(service_file=os.path.basename('certain-acre-356906-4a95905b9747.json'))
+gc = pygsheets.authorize(service_file=os.path.basename('key.json'))
 
 # Create empty dataframe
 # df = pd.DataFrame()
