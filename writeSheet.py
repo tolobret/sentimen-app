@@ -1,14 +1,11 @@
 import pygsheets
-import pandas as pd
+
 import os.path
+
 #authorization
 gc = pygsheets.authorize(service_file=os.path.basename('key.json'))
 
-# Create empty dataframe
-# df = pd.DataFrame()
 
-# Create a column
-# df['name'] = ['John', 'Steve', 'Sarah']
 
 def insert(df) :
     #open the google spreadsheet (where 'PY to Gsheet Test' is the name of my sheet)
