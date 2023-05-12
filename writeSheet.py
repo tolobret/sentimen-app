@@ -3,7 +3,7 @@ import pygsheets
 import os.path
 
 #authorization
-gc = pygsheets.authorize(service_account_env_var=sa)
+gc = pygsheets.authorize(service_account_env_var='sa')
 
 
 
