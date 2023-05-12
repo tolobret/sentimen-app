@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
-# import writeSheet as write
+import writeSheet as write
 import predict_text as predict
 
 def job() :
@@ -39,7 +39,7 @@ def job() :
   df['Predict']=df['ULASAN'].apply(predict.model_pred)
   df['Aspek']=df['ULASAN'].apply(predict.aspek_pred)
 
-  # write.insert(df)
+  write.insert(df)
   return df
 
 
