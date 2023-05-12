@@ -3,7 +3,7 @@ import pygsheets
 import os.path
 
 #authorization
-gc = pygsheets.authorize(service_file=os.path.basename('key.json'))
+gc = pygsheets.authorize(service_file=os.environ['sa'])
 
 
 
